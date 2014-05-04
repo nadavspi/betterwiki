@@ -1,0 +1,132 @@
+@import "susy";
+
+$background: white;
+$blue: #0077aa;
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 18px;
+  line-height: 1.45;
+  @media (min-width: 50rem) {
+    font-size: 21px;
+}
+}
+
+
+body {
+  margin: 0 auto;
+  padding: 1.5rem;
+  //  max-width: 32rem;
+  font-family: minion-pro, Georgia, serif;
+  text-rendering: optimizeLegibility;
+  color: #222;
+  background-color: white;
+}
+
+img {
+  max-width: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: adelle-sans, sans-serif;
+  font-weight: normal;
+  line-height: 1.2;
+}
+
+h3 {
+  margin-top: 1.5em;
+  margin-bottom: 0.1em;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+p {
+  margin: 0;
+  margin-bottom: 1em;
+}
+
+/* https://medium.com/p/7c03a9274f9 */
+/* And http://practice.typekit.com */
+a {
+  color: inherit;
+  text-decoration: none;
+  background-image: linear-gradient(to bottom, transparent 50%, #999 50%);
+  background-repeat: repeat-x;
+  background-size: 3px 3px;
+  background-position: 0 90%;
+  //text-shadow: 1px 0 $background,2px 0 $background,-1px 0 $background,-2px 0 $background;
+
+  &:hover, &:active {
+    color: $blue;
+    background-image: linear-gradient(transparent 50%, $blue 50%);
+}
+}
+
+blockquote {
+  font-size: 0.9em;
+  line-height: 1.4;
+}
+
+header > form {
+  float: right;
+}
+
+article {
+  max-width: 32rem;
+  position: relative;
+
+  @media (min-width: 50rem) {
+    @include pre(15%);
+}
+
+& > h1:first-child {
+  font-size: 2rem;  
+  letter-spacing: 1px;
+
+  @media (min-width: 50rem) {
+    margin-left: -5rem;
+    font-size: 3rem;
+  }
+}
+}
+
+.thumb {
+  margin: 2rem 0;
+  @media (min-width: 80em) {
+    margin: 0;
+    position: absolute;
+    right: -15rem;
+ }
+}
+
+.thumbinner {
+  margin-left: auto;
+  margin-right: auto;
+  width: auto !important;
+  max-width: 20rem;
+
+  @media (min-width: 80em) {
+    max-width: 10rem;
+  }
+
+  & > a {
+    background-image: none;
+  }
+
+  img {
+    float: none !important;
+    width: auto !important;
+  }
+}
+
+.thumbcaption {
+  margin-top: 0.25rem;
+  font-size: 0.75rem;  
+  line-height: 1.3;
+}
+

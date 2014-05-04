@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title><%= @wiki ? @wiki.title : "Home" %> | Pretty Wikipedia</title>
+    <link rel="stylesheet" href="/styles.css">
+    <script type="text/javascript" src="//use.typekit.net/stb1xrw.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+  </head>
+  <body>
+    <header>
+      <form action="/" method="post" id="form">
+        <input type="text" name="page" id="page">
+        <input type="submit" value="Go">
+      </form>
+    </header>
+
+    <article>
+      <% if @wiki %>
+        <h1><%= @wiki.title %></h1>
+        <% if @content %>
+          <%= @content %>
+        <% else %>
+          <p>Not found.</p>
+        <% end %>
+      <% else %>
+        <h1>Search for something, why&nbsp;don’t&nbsp;you?</h1>
+      <% end %>
+    </article>
+
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script>
+      var images = $.parseJSON('<%= @image_urls.to_json %>'); 
+
+      $(window).load(function () {
+        $('img').each(function() {
+          var $this = $(this);
+          var filename = $this.attr('src');
+          $this.attr('src', images[filename]);
+        });
+      });
+    </script>
+  </body>
+</html>
