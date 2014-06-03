@@ -8,25 +8,32 @@
     <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
   </head>
   <body>
-    <header>
-      <form action="/" method="post" id="form">
-        <input type="text" name="page" id="page">
-        <input type="submit" value="Go">
-      </form>
-    </header>
+    <main role="main">
+      <header>
+        <form action="/" method="post" id="form">
+          <input type="text" name="page" id="page">
+          <input type="submit" value="Go">
+        </form>
+      </header>
 
-    <article>
-      <% if @wiki %>
-        <h1><%= @wiki.title %></h1>
-        <% if @content %>
-          <%= @content %>
+      <article>
+        <% if @wiki %>
+          <h1><%= @wiki.title %></h1>
+          <% if @content %>
+            <%= @content %>
+          <% else %>
+            <p>Not found.</p>
+          <% end %>
         <% else %>
-          <p>Not found.</p>
+          <h1>Search for something, why&nbsp;don’t&nbsp;you?</h1>
         <% end %>
-      <% else %>
-        <h1>Search for something, why&nbsp;don’t&nbsp;you?</h1>
-      <% end %>
-    </article>
+      </article>
+
+    </main>
+
+    <footer>
+      An <a href="https://github.com/nadavspi/betterwiki">experiment</a> by <a href="http://nadav.is">Nadav Spiegelman</a>.
+    </footer>
 
     <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script>
